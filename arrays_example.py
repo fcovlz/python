@@ -58,5 +58,4 @@ if __name__ == "__main__":
     array_test.string_as_array(words="hello world")
     array_test.array_properties_test(array=['-2', '-1', '0', 1, 2, 3, 4, 5])
     array_test.create_array_of_arrays(array_size=10)
-
    
