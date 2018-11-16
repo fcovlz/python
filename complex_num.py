@@ -3,7 +3,7 @@
     Complex numbers handling in Python
 
 @ Pass/Fail @b criteria
-    None
+    N/A
 
 @ Usage
     From terminal:
