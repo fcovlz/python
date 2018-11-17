@@ -1,14 +1,45 @@
-"""
-@ Description
-    Brief example of how arrays work
 
-@ Pass/Fail @b criteria
-    None
+car = "Camaro SS"
 
-@ Usage
-    From terminal:
-        arrays_example.py
+def super_car():
+    print car
+    
+def super_car1():
+    car = "Challenger SRT8"
+    print car
+    
+def super_car2():
+    global car
+    car = "Viper SRT10"
+    print car
+
+class RequestData(object):
 """
+Class for Device Registers
+"""
+def __init__(self, color="", velocidad="", modelo=""):
+    """
+    Constructor
+    """
+    self.set_attribute('color', color)
+    self.set_attribute('velocidad', velocidad)
+    self.set_attribute('modelo', modelo)
+
+def set_attribute(self, attr_name, attr_value):
+    """
+    Set attribute on class
+    """
+    setattr(self, attr_name, attr_value)
+    
+    
+"Operation failed at 0x%08X - %s" % (address, value)
+
+'{>>> '{0}, {1}, {2}'.format('a', 'b', 'c')
+'a, b, c'
+
+>>> 'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N', longitude='-115.81W')
+'Coordinates: 37.24N, -115.81W'
+
 
 
 class ArrayTest:
@@ -58,4 +89,11 @@ if __name__ == "__main__":
     array_test.string_as_array(words="hello world")
     array_test.array_properties_test(array=['-2', '-1', '0', 1, 2, 3, 4, 5])
     array_test.create_array_of_arrays(array_size=10)
-   
+    
+from collections import namedtuple
+modes_tuple = namedtuple('ProductMode', 'modo1 modo2')
+MODES = modes_tuple('1', '2')
+
+
+tupl = (1, 2, 3, 4)
+
