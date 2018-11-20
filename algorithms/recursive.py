@@ -14,8 +14,7 @@ def palindrome2(word=""):
         palindrome2(word[1:size-1])
 
 
-
 if __name__ == "__main__":
-    #Array of arrays
+    # Array of arrays
     word = "aaaaaaaaaaaa1aaaaaaaaaaaa"
     print palindrome2(word)

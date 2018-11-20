@@ -45,9 +45,13 @@ class MessyClass:
         finally:
             something_we_always_need_to_do()
 
-    def example_of_raise(self):
+    def example_of_raise_1(self):
         if wrong_condition:
            raise #Empty should return original error
+
+    def example_of_raise_2(self):
+        if wrong_condition:
+           raise ValueError ("Error message here")
 
     def example_of_error_mask:
         try:

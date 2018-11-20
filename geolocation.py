@@ -7,7 +7,7 @@
 
 @ Usage
     From terminal:
-        arrays_example.py
+        geolocation.py
 
 Certification Project
 Q2: Create a script called location that return the location parameters of any location you want.

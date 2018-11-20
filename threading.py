@@ -1,65 +1,52 @@
 # Threading using new 'threading' library from Python 2.4
 import threading
+import thread
 import time
 
-exitFlag = 0
 
 class myThread (threading.Thread):
+
     def __init__(self, threadID, name, counter):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name
         self.counter = counter
+        self.exit_flag = 0
         
     def run(self):
         print "\nStarting " + self.name
-        print_time(self.name, self.counter, 5)
+        self.print_time(self.name, self.counter, 5)
         print "Exiting " + self.name
 
-def print_time(threadName, delay, counter):
-    while 1:
-        if exitFlag:
-            threadName.exit()
+    def print_time(self, thread_name, delay, counter):
+        while 1:
+            if self.exitFlag:
+                thread_name.exit()
+            time.sleep(delay)
+            print "\n%s: %s" % (thread_name, time.ctime(time.time()))
+            counter -= 1
+
+
+def thread_print_time(thread_name, delay):
+    while True:
         time.sleep(delay)
-        print "\n%s: %s" % (threadName, time.ctime(time.time()))
-        counter -= 1
+        print "%s : %s" % (thread_name, time.ctime(time.time()))
+
 
 if __name__ == "__main__":
-    # Create new threads
+    # Threading example 1
     thread1 = myThread(1, "Thread-1", 1)
     thread1.daemon = True
     thread2 = myThread(2, "Thread-2", 2)
     thread2.daemon = True
-    
-    # Start new Threads
     thread1.start()
     thread2.start()
 
-    # print "\nExiting Main Thread"
+    # Threading example 2
+    thread3 = threading.Thread(target=thread_print_time("Thread-3", 3))
+    thread.start()
 
-      
-    # while(1):
-        # print "~"
-        # time.sleep(1)
-        
-        
-# Threading example using 'thread' library
-import thread
-import time
-
-# Worker Function
-def printTime(threadName, delay):
-    while(1):
-        time.sleep(delay)
-        print "%s : %s" % (threadName, time.ctime(time.time()))
-
-
-# Instance new Thread objects
-thread.start_new_thread(printTime, ("Thread-1", 4, ))
-thread.start_new_thread(printTime, ("Thread-2", 2, ))
-
-# To keep alive the execution of the process
-while(1):
-    pass
-
-    
+    # Thread example
+    # Instance new Thread objects
+    thread.start_new_thread(thread_print_time(), ("Thread-4", 4,))
+    thread.start_new_thread(thread_print_time(), ("Thread-5", 2,))

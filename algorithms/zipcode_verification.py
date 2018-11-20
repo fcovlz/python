@@ -7,13 +7,14 @@ inputs
 abcdef False
 """
 
+
 def main():
     p = raw_input()
     try: 
-        result = (int(p)>100000 and int(p)<999999) and (p[0]==p[2] or (p[0]==p[1] and p[1]==p[3])) or (int(p)<100000 and int(p)>999999) 
-    except:
-        result= False
-    print  result
+        result = 999999 > int(p) > 100000 and p[0] == p[2] == p[1] == p[3]
+    except():
+        result = False
+    print result
     
     
 def matrix():
@@ -33,29 +34,32 @@ def matrix():
 
     matrix_hor = []
     for n in matrix:
-        matrix_hor+=n
-        
-    n =0    
+        matrix_hor += n
+
+    n = 0
     print matrix_hor
-    while(check_alpha_digit(matrix_hor[n:])):
-        while( not (matrix_hor[n].isalpha() or matrix_hor[n].isdigit())):
-            while (matrix_hor[n-1]== " " or n==0 ):
+
+    while check_alpha_digit(matrix_hor[n:]):
+
+        while not (matrix_hor[n].isalpha() or matrix_hor[n].isdigit()):
+
+            while matrix_hor[n-1] == " " or n == 0 :
                 del matrix_hor[n]
                 break
-            while (matrix_hor[n-1].isdigit() or matrix_hor[n-1].isalpha() ):
-                matrix_hor[n]=" "
+            while matrix_hor[n-1].isdigit() or matrix_hor[n-1].isalpha():
+                matrix_hor[n] = " "
                 break
             break
         print matrix_hor
-        n+=1
+        n += 1
     matrix_final = ""
     for n in matrix_hor:
-        matrix_final+=n
+        matrix_final += n
     print matrix_final
 
-def check_alpha_digit(temp = []):
+
+def check_alpha_digit(temp):
     for n in temp:
-        while(n.isalpha() or n.isdigit()):
+        while n.isalpha() or n.isdigit():
             return True
     return False
-    

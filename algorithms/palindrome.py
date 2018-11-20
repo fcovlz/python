@@ -1,7 +1,6 @@
 
 
-
-def palindrome1(word=""):
+def palindrome1(word):
     size = len(word)
     error = 0
     for index in range(size/2):
@@ -14,7 +13,8 @@ def palindrome1(word=""):
             break
     return error
 
-def palindrome2(word=""):
+
+def palindrome2(word):
     size = len(word)
     if size <= 1:
         print "It's a palindrome"
@@ -28,9 +28,8 @@ def palindrome2(word=""):
         palindrome2(word[1:size-1])
 
 
-
 if __name__ == "__main__":
-    #Array of arrays
+    # Array of arrays
     word = "aaaaaaaaaaaa1aaaaaaaaaaaa"
     print palindrome1(word)
     print palindrome2(word)

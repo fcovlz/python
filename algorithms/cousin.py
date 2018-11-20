@@ -1,17 +1,23 @@
+
 def es_primo(num):
-    if num < 2:     #si es menos que 2 no es primo, por lo tanto devolvera Falso
+    # si es menos que 2 no es primo, por lo tanto devolvera Falso
+    if num < 2:
         return False
-    for i in range(2, num):  #un rango desde el dos hasta el numero que nosotros elijamos
-        if num % i == 0:    #si el resto da 0 no es primo, por lo tanto devuelve Falso
+    # un rango desde el dos hasta el numero que nosotros elijamos
+    for i in range(2, num):
+        # si el resto da 0 no es primo, por lo tanto devuelve Falso
+        if num % i == 0:
             return False
-    return True    #de lo contrario devuelve Verdadero
+    # de lo contrario devuelve Verdadero
+    return True
+
 
 def primos(num):  
     cont = 0
     for i in range( num):
-        if es_primo(i) == True: #Llamamos a la primera funcion para ahorrar trabajo ;)
-            cont += 1           #Que va a determinar si es primo o no
-            print i                
-    print ""  
+        # Llamamos a la primera funcion para ahorrar trabajo ;)
+        if es_primo(i) :
+            # Que va a determinar si es primo o no
+            cont += 1
+            print i
     print "Hay", cont, "numeros primos" #Total de numeros primos
-    
