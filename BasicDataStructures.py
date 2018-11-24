@@ -59,8 +59,9 @@ class ArrayTest:
 
 tuple = (1, 2, 3, 4)
 
-
 from collections import namedtuple
+SPEED = namedtuple('cpu_speed', 'MHZ GHZ')(800, 1.3)
+
 modes_tuple = namedtuple('ProductMode', 'modo1 modo2')
 MODES = modes_tuple('1', '2')
 
