@@ -177,8 +177,8 @@ class BinarySearchTree:
             return False
 
 
+from random import randint
 def fill_tree(tree, num_elem, max_int):
-    from random import randint
     for index in range(num_elem):
         cur_elem = randint(0, max_int)
         tree.insert(cur_elem)
