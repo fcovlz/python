@@ -20,7 +20,8 @@ class SimpleAppWx(wx.Frame):
 
     def setup(self):
         sizer = wx.GridBagSizer()
-        entry = wx.TextCtrl(-1, value=u"Enter text here.", style=self.TE_PROCESS_ENTER)
+        entry = wx.TextCtrl(-1, value=u"Enter text here.",
+                            style=self.TE_PROCESS_ENTER)
         sizer.Add(entry, (0, 0), (1, 1), self.EXPAND)
         wx.Bind(wx.EVT_TEXT_ENTER, self.OnPressEnter, self.entry)
 

@@ -6,7 +6,8 @@ print "Set specific number of zeros 0x%08X"%hex_value
 
 print '{0}, {1}, {2}'.format('a', 'b', 'c')
 
-print 'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N', longitude='-115.81W')
+print 'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N',
+                                                    longitude='-115.81W')
 
 # endregion String manipulation
 
