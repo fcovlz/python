@@ -7,7 +7,6 @@ print "Set specific number of zeros 0x%08X"%hex_value
 print '{0}, {1}, {2}'.format('a', 'b', 'c')
 
 print 'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N',
-                                                    longitude='-115.81W')
 
 # endregion String manipulation
 
@@ -59,6 +58,8 @@ class ArrayTest:
 
 tuple = (1, 2, 3, 4)
 
+a, b, c = "a", "b", "c"
+
 from collections import namedtuple
 SPEED = namedtuple('cpu_speed', 'MHZ GHZ')(800, 1.3)
 
@@ -66,6 +67,59 @@ modes_tuple = namedtuple('ProductMode', 'modo1 modo2')
 MODES = modes_tuple('1', '2')
 
 # endregion tuples
+
+
+# region hash map
+personal_info = {'name' : 'Francisco',
+                 'age' : 2,
+                 'occupation' : 'Engineer'}
+
+for key, value in personal_info.iteritems():
+    print "key {} and value {}".format(key, value)
+
+# endregion has map
+
+
+# region set
+my_set = {1, 2, 3, 4, 5, 6}
+
+for element in my_set:
+    print element
+
+# endregion set
+
+
+# region create list
+
+list1 = [1, 2, 3, 4, 5, 6]
+list1 = [num * num for num in list1]
+print list1
+
+list2 = [255] * 100
+print list2
+
+list3 = range(0, 10)
+print list3
+
+list4 = [[0 for index0 in range(10)] for index1 in range(10)]
+print list4
+
+list5 = [[0] *10] *10
+print list5
+
+# endregion create list
+
+
+# region Yield
+def fibonacci():
+    a,b = 0,1
+    while True:
+        yield a
+        a, b = b, a + b
+
+a = fibonacci
+print a.next
+# endregion Yield
 
 if __name__ == "__main__":
 

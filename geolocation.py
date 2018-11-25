@@ -17,7 +17,7 @@ from geocoder
 
 def geolocation():
     while True:
-        place = raw_input ("Write a city you want to locate, otherwise, write N")
+        place = raw_input ("Write a city you want to locate, otherwise write N")
         if place != "N":
             g = geocoder.google(place)
             print(g.latlng)
