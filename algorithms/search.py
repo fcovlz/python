@@ -6,8 +6,7 @@ class Search():
         self.key = key
         self.verbose = verbose
 
-    def busqueda_seq(self):
-
+    def sequential(self):
         for element in self.data:
             if self.verbose:
                 print "DEBUG: ", element
@@ -17,70 +16,112 @@ class Search():
         print "Item not found"
         return False
 
-    def busqueda_seq_idx(lista, mul, llave):
+    def interpolar(self):
 
-        if mul is None or llave is None:
-            print "enter a valid mul or llave"
-            return -1
-        res = len(lista) % mul
-        if res < .5:
-            div = (len(lista)/mul) - res
+        idx0 = 0
+        idxn = len(self.data) - 1
+
+        while idx0 <= idxn and self.data[idxn] > self.key > self.data[idx0]:
+
+            # Set mid point
+            mid = idx0 + (((idxn - idx0)/(self.data[idxn] - self.data[idx0]) *
+                           (self.key - self.data[idx0])))
+
+            if self.data[mid] == self.key:
+                return "Found {} at index {}".format(self.key, mid)
+
+            if self.data[mid] < self.key:
+                idx0 = mid + 1
+
+        return False
+
+    def binary_search(self):
+        first = 0
+        last = len(self.data) - 1
+
+        while first <= last:
+            midpoint = (first + last) / 2
+
+            if self.verbose:
+                print self.data[midpoint]
+
+            if self.data[midpoint] == self.key:
+                return True
+
+            else:
+                if self.key < self.data[midpoint]:
+                    last = midpoint - 1
+
+                else:
+                    first = midpoint + 1
+        return False
+
+    def binary_search_recursive0(self, first=None, last=None):
+        if not first <= last:
+            return False
+
         else:
-            div = (len(lista)/mul) + (res > 0)
-        for n in range(mul):
-            if n == 0:
-                index = lista[0:div]
-            if n == mul:
-                index = lista[(n-1)*div:]
+            if first is None or last is None:
+                first = 0
+                last = len(self.data) - 1
+                return self.binary_search_recursive0(first, last)
             else:
-                index = lista[n * div : ( 1 + n ) * div]
-            # print "DEBUG: ", n
-            # print index
-            if max(index) >= llave:
-                return busqueda_seq_fast(index, llave)
-        print "Item not found"
-        return -1
+                midpoint = (first + last) / 2
 
+                if self.verbose:
+                    print self.data[midpoint]
 
-    def busqueda_seq_fast(lista, llave):
-        if llave is None or llave < 0:
-            return -1
+                if self.data[midpoint] == self.key:
+                    return True
 
-        mid = (max(lista) - min(lista))/2
-        mid += min(lista)
-        mid = int(round(mid))
-        # print "DEBUG: mid = ",mid
+                else:
+                    if self.key < self.data[midpoint]:
+                        last = midpoint - 1
+                    else:
+                        first = midpoint + 1
+                    return self.binary_search_recursive0(first, last)
 
-        if max(lista) == llave or min(lista) == llave or mid == llave:
-            return 1
-
-        elif mid > llave:
-            midd = mid - (len(lista) / 4)
-            # print "DEBUG midd = ", midd
-            if llave >= midd:
-                for n in range(1, len(lista)/2):
-                    if (lista[(len(lista)/2) - n] == llave):
-                        return 1
-                    # print "DEBUG: ",n, lista[(len(lista)/2)-n]
-            else:
-                for n in range(0, len(lista)/2):
-                    if lista[n] == llave:
-                        return 1
-                    # print "DEBUG: ",n, (lista[n])
+    def binary_search_recursive1(self, list):
+        if len(list) == 0:
+            return False
         else:
-            midd = (len(lista) / 4) + mid
-            # print "DEBUG midd = ", midd
-            if llave>=midd:
-                for n in range(1, len(lista)/2):
-                    if lista[len(lista)-n] == llave:
-                        return 1
-                    elif midd == llave:
-                        return 1
-                    # print "DEBUG: ",n, lista[len(lista)-n]
+            midpoint = len(list)//2
+
+            if self.verbose:
+                print list
+
+            if list[midpoint] == self.key:
+                return True
+
             else:
-                for n in range(0,len(lista)/2):
-                    if lista[(len(lista)/2) + n] == llave:
-                        # print "DEBUG: ",n, (lista[(len(lista)/2)+n])
-                        return 1
-           print "Item not found"
-        return -1
+                if list[midpoint] > self.key:
+                    new_list = list[:midpoint]
+                else:
+                    new_list = list[midpoint+1:]
+
+                return self.binary_search_recursive1(new_list)
+
+
+if __name__ == "__main__" :
+    # list = [1, 3, -1, 4, -2, -3, 10, 2, 5, -4, 0]
+    list = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
+    key = -2
+
+    search = Search(list, key)
+
+    # result = search.busqueda_seq()
+    # print result
+    #
+    # result = search.interpolar()
+    # print result
+
+    # result = search.binary_search()
+    # print result
+
+    # TODO fix boundary errors
+    # result = search.binary_search_recursive0(list)
+    # print result
+
+    # TODO fix boundary errors
+    result = search.binary_search_recursive1(list)
+    print result
