@@ -102,7 +102,7 @@ class Search():
                 return self.binary_search_recursive1(new_list)
 
 
-if __name__ == "__main__" :
+if __name__ == "__main__":
     # list = [1, 3, -1, 4, -2, -3, 10, 2, 5, -4, 0]
     list = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
     key = -2
