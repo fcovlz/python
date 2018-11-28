@@ -85,7 +85,7 @@ class Search():
         if len(list) == 0:
             return False
         else:
-            midpoint = len(list)//2
+            midpoint = len(list) / 2
 
             if self.verbose:
                 print list
