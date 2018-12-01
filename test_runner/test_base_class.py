@@ -12,38 +12,5 @@ class Test(object):
         self.result = result
         self.test_system = test_system
 
-    def setup(self):
-        """
-        WIP
-        """
-        print "SETUP not implemented."
-
-    def initiate(self):
-        """
-        WIP
-        """
-        print "INITIATE method not implemented."
-
-    def complete(self):
-        """
-        WIP
-        """
-        print "COMPLETE not implemented."
-
-    def teardown(self):
-        """
-        WIP
-        """
-        print self.result
-        print self.test_system
-        print "TEARDOWN method not implemented."
-
-    def run(self):
-        """
-        WIP
-        """
-        self.setup()
-        self.initiate()
-        self.complete()
-        self.teardown()
-        return 1
+    def test_script:
+        pass
