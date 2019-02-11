@@ -71,7 +71,7 @@ class LinkedList(object):
     def __init__(self):
         self.day = None
 
-    def traverse(self):
+    def print_list(self):
         node = self.day
         while node is not None:
             print node.value
@@ -99,7 +99,7 @@ def linked_list_sample():
     days_of_the_week.insert_right('saturday')
     days_of_the_week.insert_right('sunday')
 
-    days_of_the_week.traverse()
+    days_of_the_week.print_list()
 
 # endregion Linked list
 
@@ -198,3 +198,7 @@ def tree_sample():
     print tree.search(1010)
 
 # endregion Tree
+
+
+if __name__ == "__main__":
+    linked_list_sample()
