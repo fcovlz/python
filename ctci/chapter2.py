@@ -14,7 +14,7 @@ def remove_duplicated_unsorted_linked_list_solution1(linked_list_sample):
     while linked_list_sample is not None:
         element_value = linked_list_sample.value
         if element_value in duplicated_values:
-            print "duplicated"
+            print("duplicated")
         else:
             duplicated_values.append(element_value)
             linked_list_sample = linked_list_sample.next
@@ -36,7 +36,7 @@ class LinkedList(object):
     def traverse(self):
         node = self.element
         while node is not None:
-            print node.value
+            print(node.value)
             node = node.next
 
     def insert_right(self, value):
@@ -66,4 +66,4 @@ def create_linked_list():
 if __name__ == "__main__":
     array = [1, 2, 3, 4, 5, 5, 2, 4, 1]
     linked_list_input = create_linked_list()
-    print remove_duplicated_unsorted_linked_list_solution1(linked_list_input)
+    print(remove_duplicated_unsorted_linked_list_solution1(linked_list_input))
