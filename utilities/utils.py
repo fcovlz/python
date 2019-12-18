@@ -17,7 +17,7 @@ def create_array_integers(length_array):
 def create_array_characters(length_array):
     return [random.choice(string.ascii_lowercase) for _ in range(length_array)]
 
-
+ 
 def create_string_characters(length_string):
     _string = ""
     for _ in range(length_string):
