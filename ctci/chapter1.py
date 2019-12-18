@@ -2,6 +2,8 @@
 Chapter 1: Cracking the code interview
 Author: Francisco Velazquez
 """
+
+
 # region Problem 1.1
 """
 Implement an algorithm to determine if a string has all unique characters.
@@ -64,16 +66,14 @@ def verify_unique_characters_in_string_solution4(data):
         else:
             new_array.append(char)
     return True
-
-
 # endregion Problem 1.1
+
+
 # region Problem 1.2
 """"
 Write code to reverse a C-Style String. (C-String means that 'abcd' is
 represented as five characters, including the null character.)
 """
-
-
 def reverse_string_solution1(data):
     """
     :return: reversed string
@@ -97,9 +97,9 @@ def reverse_string_solution2(data):
         data[-1 - index] = first_char
     data = ''.join(data)
     return data
-
-
 # endregion Problem 1.2
+
+
 # region Problem 1.3
 """"
 Design an algorithm and write code to remove the duplicate characters in a string
@@ -113,7 +113,6 @@ def remove_duplicate_char_in_string_solution1(data):
     :return: string without duplicates
     """
     validate_input_values(data)
-
     data = list(data)
     for index in range(len(data)):
         for element in data[index + 1:]:
@@ -121,9 +120,9 @@ def remove_duplicate_char_in_string_solution1(data):
                 data = data[:index] + data[index + 1:]
     data = ''.join(data)
     return data
-
-
 # endregion Problem 1.3
+
+
 # region Problem 1.4
 """
 Write a method to decide if two strings are anagrams or not.
@@ -156,9 +155,9 @@ def verify_if_two_strings_are_anagrams_solution2(data1, data2):
         return True
     else:
         return False
-
-
 # endregion Problem 1.4
+
+
 # region Problem 1.5
 """
 Write a method to replace all spaces in a string with '%20'
@@ -173,9 +172,9 @@ def replace_spaces_in_string_solution1(data):
         else:
             data_out = data_out + char
     return data_out
-
-
 # endregion Problem 1.5
+
+
 # region Problem 1.6
 """
 Given an image represented by an NxN matrix, where each pixel in the image is 4
@@ -185,14 +184,14 @@ bytes, write a method to rotate the image by 90 degrees.
 
 def rotate_image_by_90_degrees_solution1(matrix):
     x_axis = len(matrix[0])
-    matrix_output = [[] for _ in xrange(x_axis)]
+    matrix_output = [[] for _ in range(x_axis)]
     for row in matrix:
         for index in range(len(row)):
             matrix_output[-1 - index].append(row[index])
     return matrix_output
-
-
 # endregion Problem 1.6
+
+
 # region Problem 1.7
 """
 Write an algorithm such that if an element in an MxN matrix is 0, its entire row 
@@ -208,19 +207,19 @@ def search_zero_element_set_0_row(matrix):
                 matrix[index] = [0] * len(row)
                 break
     return matrix
-
-
 # endregion Problem 1.7
+
+
 # region Problem 1.8
 """
-Assume you have a method isSubstring which checks if one word is a substring of
-another. Given two strings, s1 and s2, write code to check if s2 is a rotation 
-of s1 using only one call to isSubstring (i.e., 'waterbottle' is a rotation of 
-'erbottlewat').
+Assume you have a method is_substracting which checks if one word is a substring
+of another. Given two strings, s1 and s2, write code to check if s2 is a 
+rotation of s1 using only one call to is_substracting (i.e., 'waterbottle' is a 
+rotation of 'erbottlewat').
 """
 
 
-def isSubstring(data1, data2):
+def is_substracting(data1, data2):
     if data1 == data2:
         return True
     for index in range(len(data2)):
@@ -229,11 +228,10 @@ def isSubstring(data1, data2):
         if data1 == data2:
             return True
     return False
-
 # endregion Problem 1.8
+
+
 # region Utilities
-
-
 def convert_string_to_dict(data):
     skip_char = {}
     for index in range(len(data)):
@@ -254,16 +252,16 @@ def validate_input_values(data=None):
 
 
 if __name__ == "__main__":
-    input = "abcd efghijklmnopq rstuvwxy z1234567890ABCDEFGHIJKLM NOPQRSTUVWXYZ"
-    # print verify_unique_characters_in_string_solution1(input)
-    # print verify_unique_characters_in_string_solution2(input)
-    # print verify_unique_characters_in_string_solution3(input)
-    # print verify_unique_characters_in_string_solution4(input)
-    # print reverse_string_solution1(input)
-    # print reverse_string_solution2(input)
-    # print remove_duplicate_char_in_string_solution1(input)
+    data_string = "abcd efghijklmnopq rstuvwxy z1234567890ABCDEFGHIJKLM NOPQRSTUVWXYZ"
+    # print verify_unique_characters_in_string_solution1(data_string)
+    # print verify_unique_characters_in_string_solution2(data_string)
+    # print verify_unique_characters_in_string_solution3(data_string)
+    # print verify_unique_characters_in_string_solution4(data_string)
+    # print reverse_string_solution1(data_string)
+    # print reverse_string_solution2(data_string)
+    # print remove_duplicate_char_in_string_solution1(data_string)
     # print verify_if_two_strings_are_anagrams_solution2(input, input)
-    # print replace_spaces_in_string_solution1(input)
+    # print replace_spaces_in_string_solution1(data_string)
     # matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     # matrix = [[1, 2, 3], [4, 5, 6]]
     # matrix = rotate_image_by_90_degrees_solution1(matrix)
@@ -273,4 +271,4 @@ if __name__ == "__main__":
     # print search_zero_element_set_0_row(matrix)
     substring1 = "waterbottle"
     substring2 = "erbottlewat"
-    print isSubstring(substring1, substring2)
+    print(is_substracting(substring1, substring2))
