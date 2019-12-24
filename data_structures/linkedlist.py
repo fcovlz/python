@@ -58,14 +58,19 @@ class WeekDaysDouble():
 
         return add_status
 
-    def traverse(self):
-        print('Forward')
+    def traverse_forward(self, node=''):
+        if node is '':
+            node = self.current_day
+        elif node is None:
+            return
+        print(node.value)
+        return self.traverse(node.next)
+    
+    def traverse_backward(self):
         forward = self.current_day
         while forward is not None:
-            print('node value: ', forward.value)
             backward = forward
             forward = forward.next
-        print('Backward')
         while backward is not None:
             print('node value: ', backward.value)
             backward = backward.prev
@@ -165,29 +170,29 @@ if __name__ == "__main__":
     wds.add_right('saturday')
     wds.add_left('monday')
     wds.add_left('sunday')
-    wds.traverse()
+    wds.traverse_forward()
     result = wds.search('wed')
     print(result)
     result = wds.search('wednesday')
     print(result)
     wds.pop_right()
-    wds.traverse()
+    wds.traverse_forward()
     wds.add_right('saturday')
-    wds.traverse()
+    wds.traverse_forward()
     wds.pop_left()
-    wds.traverse()
+    wds.traverse_forward()
     wds.add_left('sunday')
-    wds.traverse()
+    wds.traverse_forward()
     result = wds.delete_by_value('wednesday')
     print(result)
-    wds.traverse()
+    wds.traverse_forward()
     wds.add_by_index(3, 'wednesday')
-    wds.traverse()
+    wds.traverse_forward()
     wds.delete_by_index(3)
-    wds.traverse()
+    wds.traverse_forward()
     wds.add_by_index(3, 'wednesday')
-    wds.traverse()
+    wds.traverse_forward()
     wds.round_up()
-    wds.traverse()
+    wds.traverse_forward()
     wds.reverse()
-    wds.traverse()
+    wds.traverse_forward()
