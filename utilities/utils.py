@@ -36,4 +36,4 @@ def minimum_in_list(array):
         if element < minimum_value:
             minimum_value = element
     return minimum_value
-# endregion Minimum in a list
+# endregion Minimum in a list 
